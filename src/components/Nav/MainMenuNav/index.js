@@ -17,9 +17,9 @@ class MainMenuNav extends Component {
                   <ul className="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                     <li><a data-toggle="tab" href="#Home"><i className="notika-icon notika-house" /> Trang chủ</a>
                     </li>
-                    <li><a data-toggle="tab" href="#mailbox"><i className="notika-icon notika-mail" /> Bài viết</a>
+                    <li><a data-toggle="tab" href="#mailbox"><i className="notika-icon notika-star" /> Bài viết</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Interface"><i className="notika-icon notika-edit" />Thể loại</a>
+                    <li><a data-toggle="tab" href="#Interface"><i className="notika-icon notika-promos" />Thể loại</a>
                     </li>
                     <li><a data-toggle="tab" href="#Charts"><i className="notika-icon notika-form" />Bình luận</a>
                     </li>
@@ -34,7 +34,7 @@ class MainMenuNav extends Component {
                   <div className="tab-content custom-menu-content">
                     <div id="Home" className="tab-pane in notika-tab-menu-bg animated flipInX">
                       <ul className="notika-main-menu-dropdown">
-                        <li><NavLink to="/dashboard">Trang chủ</NavLink>
+                        <li><NavLink to="/">Trang chủ</NavLink>
                         </li>
                       </ul>
                     </div>

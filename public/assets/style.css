@@ -361,7 +361,7 @@ body {}
 .ntd-ctn {
 	position: absolute;
     top: 8px;
-    left: -8px;
+    left: 32px;
     font-size: 10px;
     background: #e46a76;
     height: 18px;
@@ -390,7 +390,7 @@ body {}
 .spinner-4::before, .spinner-4::after {
 	position: absolute;
 	margin-top: 0px;
-	margin-left: 0px;
+	margin-left: 40px;
 	background: orangered;
 	-webkit-animation: pulse 3s linear infinite;
 	animation: pulse 3s linear infinite;

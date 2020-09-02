@@ -45,7 +45,7 @@ class Login extends Component {
                 (result) => {
                     if(result.status == true) {
                         cookie.save('userToken', result.data['token'])
-                        window.location.href = '/posts'
+                        this.props.onLoggedIn();
                     } else{
                         alert(result.data['message'])
                     }
