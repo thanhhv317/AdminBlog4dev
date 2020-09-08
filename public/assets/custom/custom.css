@@ -1,4 +1,183 @@
 th {
-    text-transform: capitalize;
-    white-space: nowrap;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+  -webkit-text-size-adjust: none;
+}
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-javadoc {
+  color: #998;
+  font-style: italic;
+}
+.hljs-keyword,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.nginx .hljs-title,
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #a71d5d;
+}
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #008080;
+}
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.tex .hljs-formula {
+  color: #df5000;
+}
+.hljs-title,
+.hljs-id,
+.scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+.javascript .hljs-title,
+.hljs-list .hljs-keyword,
+.hljs-subst {
+  font-weight: normal;
+}
+.hljs-class .hljs-title,
+.hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold;
+}
+.hljs-literal {
+  color: #795da3;
+}
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal;
+}
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #008080;
+}
+.hljs-regexp {
+  color: #009926;
+}
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.lisp .hljs-keyword,
+.clojure .hljs-keyword,
+.scheme .hljs-keyword,
+.tex .hljs-special,
+.hljs-prompt {
+  color: #990073;
+}
+.hljs-built_in {
+  color: #0086b3;
+}
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold;
+}
+.hljs-deletion {
+  background: #fdd;
+}
+.hljs-addition {
+  background: #dfd;
+}
+.diff .hljs-change {
+  background: #0086b3;
+}
+.hljs-chunk {
+  color: #aaa;
+}
+
+.post-thumbnail {
+  max-height: 180px;
+}
+
+.post-title {
+  font-size: 1.2rem;
+}
+
+.post-thumbnail__update {
+  width: auto;
+  max-height: 150px;
+}
+
+.post-status__update {
+  border: 1px solid #06e219;
+  padding: 10px;
+}
+
+.post-thumbnail__list .active {
+  color: #06e219;
+  border: 1px solid #009926;
+  padding: 2px;
+}
+
+.post-status__list.inactive {
+  color: #900;
+  border: 1px solid rgb(98, 10, 10);
+  padding: 2px;
+}
+
+.pagination-list {
+  padding: 20px;
+}
+
+.mg-r-20 {
+  margin-right: 20px;
+}
+.pagination-button {
+  float: right;
+  padding: 10px 20px 0px 20px;
+  border: 1px solid #009926;
+  border-radius: 5px;
+}
+
+.rdt_ExpanderRow {
+  padding: 10px;
+}
+
+.sc-dlnjPT.ctJDeu.rdt_TableHeadRow{
+  background-color: rgb(226, 226, 226);
+  border: 1px solid #998;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.sc-dlnjPT.ctJDeu.rdt_TableHeadRow > div {
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: #900;
+  border: 1px solid #a71d5d;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.status-active {
+  color: rgb(33, 170, 51);
+  border: 1px solid #25c34c;
+  padding: 2px;
+  border-radius: 3px;
 }

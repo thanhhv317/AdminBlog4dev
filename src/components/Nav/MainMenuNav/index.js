@@ -56,7 +56,7 @@ class MainMenuNav extends Component {
                     </div>
                     <div id="Charts" className="tab-pane notika-tab-menu-bg animated flipInX">
                       <ul className="notika-main-menu-dropdown">
-                        <li><a href="flot-charts.html">Danh sách bình luận</a>
+                        <li><a href="/comments">Danh sách bình luận</a>
                         </li>
                       </ul>
                     </div>

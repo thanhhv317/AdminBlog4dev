@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
-class UpdateItem extends Component {
+class UpdateComment extends Component {
+  constructor(props) {
+    super(props);
+  }
   onChange = (e, key) => {
     const { updateItem } = this.props;
     if (key === "status") {
@@ -36,12 +39,11 @@ class UpdateItem extends Component {
                     <div className="form-group">
                       <div className="nk-int-st">
                         <textarea
-                          onChange={(e) => this.onChange(e, "name")}
                           className="form-control auto-size"
-                          name="name"
                           value={updateItem.name}
+                          onChange={(e) => this.onChange(e, "name")}
                           rows={2}
-                          placeholder="Nhập tên thể loại.."
+                          placeholder="Tên người gửi."
                         />
                       </div>
                     </div>
@@ -52,12 +54,26 @@ class UpdateItem extends Component {
                     <div className="form-group">
                       <div className="nk-int-st">
                         <textarea
-                          onChange={(e) => this.onChange(e, "description")}
                           className="form-control auto-size"
-                          name="description"
-                          value={updateItem.description}
+                          value={updateItem.email}
+                          onChange={(e) => this.onChange(e, "email")}
                           rows={2}
-                          placeholder="Nhập mô tả..."
+                          placeholder="Email người gửi."
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div className="form-group">
+                      <div className="nk-int-st">
+                        <textarea
+                          className="form-control auto-size"
+                          rows={2}
+                          placeholder="Nhận xét"
+                          value={updateItem.comment}
+                          onChange={(e) => this.onChange(e, "comment")}
                         />
                       </div>
                     </div>
@@ -111,4 +127,4 @@ class UpdateItem extends Component {
   }
 }
 
-export default UpdateItem;
+export default UpdateComment;
