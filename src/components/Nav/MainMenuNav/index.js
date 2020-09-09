@@ -62,9 +62,9 @@ class MainMenuNav extends Component {
                     </div>
                     <div id="Tables" className="tab-pane notika-tab-menu-bg animated flipInX">
                       <ul className="notika-main-menu-dropdown">
-                        <li><a href="normal-table.html">Danh sách người dùng</a>
+                        <li><a href="/users">Danh sách người dùng</a>
                         </li>
-                        <li><a href="data-table.html">Thêm mới tài khoản</a>
+                        <li><a href="/users/create">Thêm mới tài khoản</a>
                         </li>
                       </ul>
                     </div>

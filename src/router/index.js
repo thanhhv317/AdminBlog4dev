@@ -28,6 +28,9 @@ import DataList from "../components/Data/List";
 
 import Comment from "../components/Comment";
 
+import UserList from "../components/User";
+import UserCreate from "../components/User/Create";
+
 class PageRouter extends Component {
   constructor(props) {
     super(props);
@@ -127,6 +130,16 @@ class PageRouter extends Component {
         <Route exact path="/comments">
           <Breadcumb title="Danh sách bình luận" />
           <Comment />
+        </Route>
+
+        {/* USERS  */}
+        <Route exact path="/users">
+          <Breadcumb title="Danh sách thành viên" />
+          <UserList />
+        </Route>
+        <Route exact path="/users/create">
+          <Breadcumb title="Thêm mới thành viên" />
+          <UserCreate />
         </Route>
 
         {loggedIn && <Footer />}
