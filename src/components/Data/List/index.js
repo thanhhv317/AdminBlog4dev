@@ -67,7 +67,7 @@ class DataList extends Component {
   };
 
   deleteRow = async () => {
-    const {alert} = this.props;
+    const { alert } = this.props;
     const { items, removeItem } = this.state;
     // Delete it!
     const url = domain + this.props.linkAPI + `/delete/${removeItem}`;
@@ -184,7 +184,17 @@ class DataList extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return (
+        <div className="animation-area">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <div className="loading">Đang tải...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     } else {
       return (
         <div className="data-table-area">

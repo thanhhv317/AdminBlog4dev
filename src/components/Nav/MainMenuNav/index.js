@@ -70,7 +70,7 @@ class MainMenuNav extends Component {
                     </div>
                     <div id="Forms" className="tab-pane notika-tab-menu-bg animated flipInX">
                       <ul className="notika-main-menu-dropdown">
-                        <li><a href="form-elements.html">Thống kê</a>
+                        <li><a href="/statistics">Thống kê</a>
                         </li>
                       </ul>
                     </div>

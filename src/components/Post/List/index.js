@@ -164,7 +164,17 @@ class ListPost extends Component {
         </div>
       );
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return (
+        <div className="animation-area">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <div className="loading">Đang tải...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     } else {
       return (
         <div>

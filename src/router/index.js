@@ -31,6 +31,10 @@ import Comment from "../components/Comment";
 import UserList from "../components/User";
 import UserCreate from "../components/User/Create";
 
+import Dashboard from "../components/Dashboard";
+
+import Statistic from "../components/Statistic";
+
 class PageRouter extends Component {
   constructor(props) {
     super(props);
@@ -89,8 +93,8 @@ class PageRouter extends Component {
           </div>
         </Route>
         <Route exact path="/">
-          <Breadcumb />
-          <div>Dashboard</div>
+          <Breadcumb title="Xin chào" />
+          <Dashboard />
         </Route>
 
         {/* POSTS  */}
@@ -140,6 +144,12 @@ class PageRouter extends Component {
         <Route exact path="/users/create">
           <Breadcumb title="Thêm mới thành viên" />
           <UserCreate />
+        </Route>
+
+        {/* STATISTICS */}
+        <Route exact path="/statistics">
+          <Breadcumb title="Số liệu thống kê" />
+          <Statistic />
         </Route>
 
         {loggedIn && <Footer />}

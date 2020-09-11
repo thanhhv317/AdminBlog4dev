@@ -181,3 +181,8 @@ th {
   padding: 2px;
   border-radius: 3px;
 }
+
+.loading {
+  font-size: 18px;
+  margin-left: 20px;
+}
