@@ -3,7 +3,6 @@ import CanvasJSReact from "../../../lib/canvasjs.react";
 import { domain } from "../../../utils/config";
 import cookie from "react-cookies";
 
-const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 class CircleChart extends Component {
@@ -13,7 +12,7 @@ class CircleChart extends Component {
       isLoaded: true,
       error: null,
       items: [],
-      total:1
+      total: 1,
     };
   }
 
@@ -32,11 +31,10 @@ class CircleChart extends Component {
       .then(
         (result) => {
           if (result.status) {
-            console.log(result);
             this.setState({
               isLoaded: true,
               items: result.data,
-              total: result.data.total
+              total: result.data.total,
             });
           }
         },
@@ -49,20 +47,17 @@ class CircleChart extends Component {
   }
   render() {
     const { items, total } = this.state;
-    console.log(total)
     let objData = [];
-    
-    let keys = ["Kích hoạt", "Chưa kích hoạt", "Đã xóa"]
+
+    let keys = ["Kích hoạt", "Chưa kích hoạt", "Đã xóa"];
     let values = Object.values(items);
-   
-    for(let i =0;i<values.length-1;++i) {
-        objData.push(
-            {"y": values[i], "label" : keys[i]}
-        );
+
+    for (let i = 0; i < values.length - 1; ++i) {
+      objData.push({ y: values[i], label: keys[i] });
     }
-    let tmp = objData.map(x => {
-        return {"y": Math.round(((x.y/total)*100)*100)/100, "label" : x.label}
-    })
+    let tmp = objData.map((x) => {
+      return { y: Math.round((x.y / total) * 100 * 100) / 100, label: x.label };
+    });
 
     const options = {
       animationEnabled: true,
@@ -76,7 +71,7 @@ class CircleChart extends Component {
           type: "pie",
           indexLabel: "{label}: {y}%",
           startAngle: -90,
-          dataPoints: tmp
+          dataPoints: tmp,
         },
       ],
     };

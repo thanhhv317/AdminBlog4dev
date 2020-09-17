@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import cookie from "react-cookies";
 import { domain } from "../../../utils/config";
 import _ from "lodash";
-
 import { withAlert } from "react-alert";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import CKEditor from "ckeditor4-react";
+
+import CKEditor from "react-ckeditor-component";
 
 class UpdatePost extends Component {
   constructor(props) {
@@ -59,38 +59,34 @@ class UpdatePost extends Component {
   };
 
   loadPostById = async () => {
-    const href = window.location.href;
-    const id = href.substring(href.lastIndexOf(".") + 1, href.length);
+    try {
+      const href = window.location.href;
+      const id = href.substring(href.lastIndexOf(".") + 1, href.length);
 
-    const url = domain + `posts/view/${id}`;
-    const fetchData = {
-      method: "GET",
-      headers: new Headers({
-        "Content-Type": "application/json",
-        "x-access-token": cookie.load("userToken"),
-      }),
-    };
-
-    await fetch(url, fetchData)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            title: result.data.post.title,
-            content: result.data.post.content,
-            thumbnail: domain + result.data.post.thumbnail,
-            category: result.data.post.category,
-            status: result.data.post.status,
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
+      const url = domain + `posts/view/${id}`;
+      const fetchData = {
+        method: "GET",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          "x-access-token": cookie.load("userToken"),
+        }),
+      };
+      const response = await fetch(url, fetchData);
+      const result = await response.json();
+      this.setState({
+        isLoaded: true,
+        title: result.data.post.title,
+        content: result.data.post.content,
+        thumbnail: domain + result.data.post.thumbnail,
+        category: result.data.post.category.map(({ _id }) => _id),
+        status: result.data.post.status,
+      });
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error,
+      });
+    }
   };
 
   changeSelectCategory = (e) => {
@@ -103,6 +99,13 @@ class UpdatePost extends Component {
     }
     this.setState({
       category: value,
+    });
+  };
+
+  onEditorChange = (evt) => {
+    this.setState({
+      ...this,
+      content: evt.editor.getData(),
     });
   };
 
@@ -149,17 +152,9 @@ class UpdatePost extends Component {
       );
   };
 
-  async componentDidMount() {
-    await this.loadListCategory();
-    await this.loadPostById();
-    const { category } = this.state;
-    let tmp = [];
-    for (let i = 0; i < category.length; ++i) {
-      tmp.push(category[i]._id);
-    }
-    this.setState({
-      category: tmp,
-    });
+  componentDidMount() {
+    this.loadListCategory();
+    this.loadPostById();
   }
 
   handleFileSelected = (e) => {
@@ -171,7 +166,6 @@ class UpdatePost extends Component {
   };
 
   onChangeStatus = (e, key) => {
-    const { status } = this.props;
     if (key === "status") {
       this.setState({
         status: e.target.checked ? "ACTIVE" : "INACTIVE",
@@ -274,17 +268,12 @@ class UpdatePost extends Component {
                     <div className="form-example-int mg-t-15">
                       <div className="form-group">
                         <label>Nội dung</label>
-                        <div className="nk-int-st">
-                          {/* <textarea value={content} onChange={this.myChangeHandle} className="form-control"  placeholder="Sẽ thay bằng ckeditor khi biết" name="content" /> */}
+                        <div className="nk-int-st" >
                           <CKEditor
-                            className="form-control"
-                            editor={ClassicEditor}
-                            data={content}
-                            onChange={(event, editor) => {
-                              const data = editor.getData();
-                              this.setState({
-                                content: data,
-                              });
+                            activeClass="p10"
+                            content={content}
+                            events={{
+                              change: this.onEditorChange,
                             }}
                           />
                         </div>
@@ -299,7 +288,7 @@ class UpdatePost extends Component {
                             type="file"
                             onChange={this.handleFileSelected}
                           />
-                          <img
+                          <img alt="hinh-anh-bai-viet"
                             className="post-thumbnail__update"
                             src={thumbnail}
                           />

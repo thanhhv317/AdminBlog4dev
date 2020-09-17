@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class BlockInfo extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const { data, text, icon, color } = this.props;
     return (

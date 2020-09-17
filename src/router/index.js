@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
   Redirect,
 } from "react-router-dom";
 
@@ -35,10 +32,13 @@ import Dashboard from "../components/Dashboard";
 
 import Statistic from "../components/Statistic";
 
+import Opt from "../components/Opt";
+
+import Profile from "../components/Profile";
+
+import Album from "../components/Album";
+
 class PageRouter extends Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     loggedIn: false,
     loading: true,
@@ -116,40 +116,76 @@ class PageRouter extends Component {
         </Route>
 
         {/* CATEGORY */}
-        <Route exact path="/category">
-          <Breadcumb title="Danh sách thể loại" />
-          <DataList
-            title="Danh sách dữ liệu"
-            description=""
-            linkAPI="categories"
-            column={["Tên", "Mô tả", "Trạng thái", "Chức năng"]}
-          />
-        </Route>
-        <Route exact path="/category/create">
-          <Breadcumb title="Thêm mới thể loại" />
-          <CreateCategory />
-        </Route>
+        {+cookie.load("userLevel") === 0 ? (
+          <>
+            <Route exact path="/category">
+              <Breadcumb title="Danh sách thể loại" />
+              <DataList
+                title="Danh sách dữ liệu"
+                description=""
+                linkAPI="categories"
+                column={["Tên", "Mô tả", "Trạng thái", "Chức năng"]}
+              />
+            </Route>
+            <Route exact path="/category/create">
+              <Breadcumb title="Thêm mới thể loại" />
+              <CreateCategory />
+            </Route>
+          </>
+        ) : (
+          ""
+        )}
 
         {/* COMMENTS */}
-        <Route exact path="/comments">
-          <Breadcumb title="Danh sách bình luận" />
-          <Comment />
-        </Route>
+        {+cookie.load("userLevel") === 0 ? (
+          <>
+            <Route exact path="/comments">
+              <Breadcumb title="Danh sách bình luận" />
+              <Comment />
+            </Route>
+          </>
+        ) : (
+          ""
+        )}
 
         {/* USERS  */}
-        <Route exact path="/users">
-          <Breadcumb title="Danh sách thành viên" />
-          <UserList />
-        </Route>
-        <Route exact path="/users/create">
-          <Breadcumb title="Thêm mới thành viên" />
-          <UserCreate />
-        </Route>
+        {+cookie.load("userLevel") === 0 ? (
+          <>
+            <Route exact path="/users">
+              <Breadcumb title="Danh sách thành viên" />
+              <UserList />
+            </Route>
+            <Route exact path="/users/create">
+              <Breadcumb title="Thêm mới thành viên" />
+              <UserCreate />
+            </Route>
+          </>
+        ) : (
+          ""
+        )}
 
         {/* STATISTICS */}
         <Route exact path="/statistics">
           <Breadcumb title="Số liệu thống kê" />
           <Statistic />
+        </Route>
+
+        {/* OPTION: CRAWL WEBSITE */}
+
+        <Route exact path="/opt/crawl">
+          <Breadcumb title="Crawl website" />
+          <Opt />
+        </Route>
+        <Route exact path="/opt/album">
+          <Breadcumb title="Thư viện ảnh" />
+          <Album />
+        </Route>
+
+        {/* PROFILE */}
+        <Route exact path="/profile">
+          <Breadcumb title="Thông tin cá nhân" />
+          <Profile />
+          <div style={{ height: 100 }}></div>
         </Route>
 
         {loggedIn && <Footer />}

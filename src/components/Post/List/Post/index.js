@@ -3,16 +3,9 @@ import { domain } from "../../../../utils/config";
 import { Link } from "react-router-dom";
 import Parser from "html-react-parser";
 import { withAlert } from "react-alert";
-import remove from "lodash/remove";
 import DeleteItem from "../../../Modal/DeleteItem";
-import Header from "../../../Header";
-import cookie from "react-cookies";
 
 class Post extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const {
       post,
@@ -23,7 +16,11 @@ class Post extends Component {
       closeDeleteConfirmation,
     } = this.props;
     return (
-      <div className={`col-lg-4 col-md-4 col-sm-4 col-xs-12 ${postIndexInRow > 0 ? "mg-t-30" : ""}`}>
+      <div
+        className={`col-lg-4 col-md-4 col-sm-4 col-xs-12 ${
+          postIndexInRow > 0 ? "mg-t-30" : ""
+        }`}
+      >
         <div className="animation-single-int">
           <div className="animation-ctn-hd">
             <Link
@@ -32,7 +29,7 @@ class Post extends Component {
             >
               {post.title}
             </Link>
-            <div>
+            <div className="post-subtitle">
               {Parser(
                 post.content.substring(
                   0,

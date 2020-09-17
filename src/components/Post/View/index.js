@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { domain } from "../../../utils/config";
 import cookie from "react-cookies";
-import Parser from "html-react-parser";
 import Breadcumb from "../../Breadcomb";
 import moment from 'moment';
 
@@ -85,13 +84,14 @@ class ViewPost extends Component {
                 <div className="typography-list typography-mgn">
                   <div className="typography-bd">
                     <p>
-                      <img src={domain + items.thumbnail} />
+                      <img alt="hinh-anh-bai-viet" src={domain + items.thumbnail} />
                     </p>
                     <h2 className="text-center">{items.title}</h2>
                   </div>
                 </div>
                 <div className="typography-heading mg-t-30">
-                  {Parser(items.content)}
+                  
+                  <div dangerouslySetInnerHTML={{__html: (items.content)}} />
                 </div>
               </div>
             </div>

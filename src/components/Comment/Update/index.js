@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class UpdateComment extends Component {
-  constructor(props) {
-    super(props);
-  }
   onChange = (e, key) => {
     const { updateItem } = this.props;
     if (key === "status") {

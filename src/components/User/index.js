@@ -111,21 +111,30 @@ class UserList extends Component {
       sortable: false,
       cell: (row) => (
         <div>
-          <a onClick={() => this.updateConfirmModal(row)}>
+          <b
+            className="btn-hover-cursor"
+            onClick={() => this.updateConfirmModal(row)}
+          >
             <i
               className="notika-icon notika-draft"
               style={{ marginRight: "10px" }}
             ></i>
-          </a>
-          <a onClick={() => this.deleteConfirmModal(row._id)}>
+          </b>
+          <b
+            className="btn-hover-cursor"
+            onClick={() => this.deleteConfirmModal(row._id)}
+          >
             <i
               className="notika-icon notika-trash"
               style={{ marginRight: "10px" }}
             ></i>
-          </a>
-          <a onClick={() => this.changePasswordConfirmModal(row._id)}>
+          </b>
+          <b
+            className="btn-hover-cursor"
+            onClick={() => this.changePasswordConfirmModal(row._id)}
+          >
             <i className="notika-icon notika-settings"></i>
-          </a>
+          </b>
         </div>
       ),
       right: true,
@@ -177,7 +186,7 @@ class UserList extends Component {
       .then((res) => res.json())
       .then(
         (result) => {
-          if (result.status == true) {
+          if (result.status === true) {
             alert.success("Thay đổi mật khẩu thành công");
 
             this.setState({
@@ -237,7 +246,7 @@ class UserList extends Component {
       .then((res) => res.json())
       .then(
         (result) => {
-          if (result.status == true) {
+          if (result.status === true) {
             alert.success("Cập nhật thành công");
             const index = _.findIndex(
               items,
@@ -305,7 +314,7 @@ class UserList extends Component {
       );
   };
 
-  //PAGINATION 
+  //PAGINATION
   handlePageChange = async (page) => {
     const { perPage } = this.state;
 
@@ -367,10 +376,9 @@ class UserList extends Component {
       filter: fil,
       loading: true,
     });
-    const { perPage, filter } = this.state;
+    const { perPage } = this.state;
 
-    const url =
-      domain + `users/list?page=${1}&perpage=${perPage}&find=${fil}`;
+    const url = domain + `users/list?page=${1}&perpage=${perPage}&find=${fil}`;
 
     const fetchData = {
       method: "GET",

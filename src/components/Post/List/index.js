@@ -111,7 +111,6 @@ class ListPost extends Component {
         perpage: perpage + 1,
         isNext: true,
       });
-      console.log(limit, perpage);
       this.loadPosts(limit, perpage + 1);
     } else {
       this.setState({
@@ -127,7 +126,6 @@ class ListPost extends Component {
         perpage: perpage - 1,
         isPrevious: true,
       });
-      console.log(limit, perpage);
       this.loadPosts(limit, perpage - 1);
     } else {
       this.setState({

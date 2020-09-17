@@ -4,8 +4,7 @@ import { domain } from "../../../utils/config";
 import { withAlert } from "react-alert";
 import _ from "lodash";
 
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import CKEditor from "ckeditor4-react";
 
 class CreatePost extends Component {
   constructor(props) {
@@ -97,6 +96,7 @@ class CreatePost extends Component {
       return;
     }
     const url = domain + "posts/create";
+    console.log(this.state)
 
     let formData = new FormData();
     formData.append("thumbnail", files[0]);
@@ -136,13 +136,17 @@ class CreatePost extends Component {
       );
   };
 
+  onEditorChange= (evt) => {
+    this.setState({
+      content: evt.editor.getData(),
+    });
+  }
+
   render() {
     const {
       isLoaded,
-      error,
       categories,
       title,
-      files,
       content,
       category,
     } = this.state;
@@ -198,28 +202,10 @@ class CreatePost extends Component {
                     <div className="form-group">
                       <label>Nội dung</label>
                       <div className="nk-int-st">
-                        {/* <textarea value={content} onChange={this.myChangeHandle} className="form-control"  placeholder="Sẽ thay bằng ckeditor khi biết" name="content" /> */}
                         <CKEditor
                           className="form-control"
-                          editor={ClassicEditor}
                           data={content}
-                          onInit={(editor) => {
-                            // You can store the "editor" and use when it is needed.
-                            // console.log('Editor is ready to use!', editor);
-                          }}
-                          onChange={(event, editor) => {
-                            const data = editor.getData();
-                            console.log({ event, editor, data });
-                            this.setState({
-                              content: data,
-                            });
-                          }}
-                          onBlur={(event, editor) => {
-                            // console.log('Blur.', editor);
-                          }}
-                          onFocus={(event, editor) => {
-                            // console.log('Focus.', editor);
-                          }}
+                          onChange={this.onEditorChange}
                         />
                       </div>
                     </div>

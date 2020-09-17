@@ -1,13 +1,32 @@
 import React, { Component } from "react";
 
-class ChangePassword extends Component {
-  onChange = (e, key) => {
-    const password = e.target.value;
-    this.props.onChangeUpdate(password);
+class CreateAlbum extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      files: {},
+    };
+  }
+
+  onChange = (e) => {
+    let val = e.target.value;
+    this.props.createDescriptionChange(val);
+  };
+
+  handleFileSelected = (e) => {
+    const files = Array.from(e.target.files);
+    this.setState(
+      {
+        files,
+      },
+      () => {
+        this.props.createFileChange(this.state.files);
+      }
+    );
   };
 
   render() {
-    const { open, onClose, changePasswordData, onSubmit } = this.props;
+    const { open, onClose, onSubmit } = this.props;
     return (
       <div
         className={`modal fade ${open ? "in" : ""}`}
@@ -23,20 +42,36 @@ class ChangePassword extends Component {
               </button>
             </div>
             <div className="modal-body">
-              <h2>Thay đổi mật khẩu</h2>
+              <h2>Thêm mới dữ liệu</h2>
               <br />
               <div>
                 <div className="row">
                   <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div className="form-group">
+                      <label>Họ tên:</label>
                       <div className="nk-int-st">
                         <input
                           type="text"
                           className="form-control auto-size"
                           rows={2}
-                          value={changePasswordData}
-                          placeholder="Nhập mật khẩu mới"
-                          onChange={(e) => this.onChange(e, "password")}
+                          placeholder="Nhập mô tả"
+                          name="description"
+                          onChange={(e) => this.onChange(e)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div className="form-group">
+                      <span>Chọn ảnh</span>
+                      <div className="nk-int-st">
+                        <input
+                          type="file"
+                          className="form-control auto-size"
+                          onChange={this.handleFileSelected}
                         />
                       </div>
                     </div>
@@ -67,4 +102,4 @@ class ChangePassword extends Component {
   }
 }
 
-export default ChangePassword;
+export default CreateAlbum;

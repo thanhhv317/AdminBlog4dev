@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class Pagination extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { onNext, onPrevious, perpage, maxPage } = this.props;
     return (
@@ -24,7 +20,9 @@ class Pagination extends Component {
                 </button>
                 <button
                   onClick={onNext}
-                  className={`btn btn-lightgreen lightgreen-icon-notika ${perpage===maxPage ? "" : " waves-effect"}`}
+                  className={`btn btn-lightgreen lightgreen-icon-notika ${
+                    perpage === maxPage ? "" : " waves-effect"
+                  }`}
                 >
                   <i className="notika-icon notika-right-arrow" />
                 </button>

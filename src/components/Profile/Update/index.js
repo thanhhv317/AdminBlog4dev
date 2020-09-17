@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import moment from "moment";
 
-class UpdateUser extends Component {
+class UpdateProfile extends Component {
   onChange = (e, key) => {
-    const { updateItem } = this.props;
-    if (key === "status") {
-      updateItem.status = e.target.checked ? "ACTIVE" : "INACTIVE";
+    let { birthday, fullname } = this.props;
+    if (key === "birthday") {
+      birthday = e.target.value;
     } else {
-      updateItem[key] = e.target.value;
+      fullname = e.target.value;
     }
-    this.props.onChangeUpdate(updateItem);
+
+    this.props.onChangeUpdate(birthday, fullname);
   };
 
   render() {
-    const { open, onClose, updateItem, onSubmit } = this.props;
+    const { open, onClose, onSubmit, birthday, fullname } = this.props;
     return (
       <div
         className={`modal fade ${open ? "in" : ""}`}
@@ -35,14 +36,16 @@ class UpdateUser extends Component {
                 <div className="row">
                   <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div className="form-group">
+                      <label>Họ tên:</label>
                       <div className="nk-int-st">
                         <input
                           type="text"
-                          className="form-control auto-size"
-                          rows={2}
-                          placeholder="Họ và tên."
-                          value={updateItem.fullname}
                           onChange={(e) => this.onChange(e, "fullname")}
+                          className="form-control auto-size"
+                          name="fullname"
+                          rows={2}
+                          placeholder="Nhập họ tên"
+                          value={fullname}
                         />
                       </div>
                     </div>
@@ -58,35 +61,10 @@ class UpdateUser extends Component {
                           type="date"
                           className="form-control auto-size"
                           rows={2}
-                          value={moment(updateItem.birthday).format(
-                            "yyyy-MM-DD"
-                          )}
+                          value={moment(birthday).format("yyyy-MM-DD")}
                           onChange={(e) => this.onChange(e, "birthday")}
                           placeholder="Ngày sinh"
                         />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div className="form-group">
-                      <div className="nk-int-st">
-                        <div className="toggle-select-act fm-cmp-mg">
-                          <div className="nk-toggle-switch" data-ts-color="red">
-                            <label htmlFor="ts2" className="ts-label">
-                              Trạng thái
-                            </label>
-                            <input
-                              id="ts2"
-                              type="checkbox"
-                              hidden="hidden"
-                              onChange={(e) => this.onChange(e, "status")}
-                              checked={updateItem.status === "ACTIVE"}
-                            />
-                            <label htmlFor="ts2" className="ts-helper" />
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -116,4 +94,4 @@ class UpdateUser extends Component {
   }
 }
 
-export default UpdateUser;
+export default UpdateProfile;

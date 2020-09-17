@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { domain } from "../../utils/config";
 import cookie from "react-cookies";
 import { withAlert } from "react-alert";
@@ -60,7 +54,11 @@ class Comment extends Component {
       name: "Bài viết",
       sortable: false,
       cell: (row) => (
-        <Link to={`/posts/view/${row.postId.slug}.${row.postId._id}`}>
+        <Link
+          to={`/posts/view/${row != null ? row.postId.slug : ""}.${
+            row != null ? row.postId._id : ""
+          }`}
+        >
           {row.postId.title}
         </Link>
       ),
@@ -84,18 +82,18 @@ class Comment extends Component {
       sortable: false,
       cell: (row) => (
         <div>
-          <a onClick={() => this.updateConfirmModal(row)}>
+          <b className="btn-hover-cursor" onClick={() => this.updateConfirmModal(row)}>
             <i
               className="notika-icon notika-draft"
               style={{ marginRight: "10px" }}
             ></i>
-          </a>
-          <a onClick={() => this.deleteConfirmModal(row._id)}>
+          </b>
+          <b className="btn-hover-cursor" onClick={() => this.deleteConfirmModal(row._id)}>
             <i
               className="notika-icon notika-trash"
               style={{ marginRight: "10px" }}
             ></i>
-          </a>
+          </b>
         </div>
       ),
       right: true,
@@ -138,7 +136,7 @@ class Comment extends Component {
       .then((res) => res.json())
       .then(
         (result) => {
-          if (result.status == true) {
+          if (result.status === true) {
             alert.success("Cập nhật thành công");
             const index = _.findIndex(
               items,
@@ -300,7 +298,7 @@ class Comment extends Component {
       filter: fil,
       loading: true,
     });
-    const { perPage, filter } = this.state;
+    const { perPage } = this.state;
 
     const url =
       domain + `comments/list?page=${1}&perpage=${perPage}&find=${fil}`;
@@ -343,7 +341,6 @@ class Comment extends Component {
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div className="data-table-list">
-               
                 <div className="table-responsive">
                   <DataTable
                     keyField="_id"

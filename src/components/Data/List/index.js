@@ -45,7 +45,7 @@ class DataList extends Component {
       .then(
         (result) => {
           console.log(result);
-          if (result.status == true) {
+          if (result.status === true) {
             alert.success("Cập nhật thành công");
             const index = _.findIndex(
               items,
@@ -84,7 +84,7 @@ class DataList extends Component {
       .then((res) => res.json())
       .then(
         (result) => {
-          if (result.status == true) {
+          if (result.status === true) {
             alert.success("xóa thành công!");
             remove(items, (item) => item._id === removeItem);
             this.setState({
@@ -232,20 +232,24 @@ class DataList extends Component {
                                 )}
                               </td>
                               <td>
-                                <a
+                                <b
+                                  className="btn-hover-cursor"
                                   onClick={() => this.updateConfirmModal(item)}
                                 >
                                   <i
                                     className="notika-icon notika-draft"
                                     style={{ marginRight: "10px" }}
                                   ></i>
-                                </a>
-                                <a onClick={() => this.confirmModal(item._id)}>
+                                </b>
+                                <b
+                                  className="btn-hover-cursor"
+                                  onClick={() => this.confirmModal(item._id)}
+                                >
                                   <i
                                     className="notika-icon notika-trash"
                                     style={{ marginRight: "10px" }}
                                   ></i>
-                                </a>
+                                </b>
                               </td>
                             </tr>
                           );

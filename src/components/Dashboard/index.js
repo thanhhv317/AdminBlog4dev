@@ -28,7 +28,6 @@ class Dashboard extends Component {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
           this.setState({
             users: result.data.users,
             categories: result.data.categories,
