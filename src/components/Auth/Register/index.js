@@ -36,7 +36,7 @@ class Register extends Component {
       password,
     };
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({

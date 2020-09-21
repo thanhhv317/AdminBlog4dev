@@ -65,7 +65,7 @@ class UpdatePost extends Component {
 
       const url = domain + `posts/view/${id}`;
       const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
         method: "GET",
         headers: new Headers({
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ class UpdatePost extends Component {
     formData.append("category", category);
     formData.append("status", status);
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "PUT",
       body: formData,
       headers: new Headers({

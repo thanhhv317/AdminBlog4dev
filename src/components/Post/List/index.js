@@ -78,7 +78,7 @@ class ListPost extends Component {
     const url = domain + `posts/list?limit=${limit}&perpage=${perpage}`;
 
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

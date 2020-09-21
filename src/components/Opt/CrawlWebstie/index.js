@@ -37,7 +37,7 @@ class CrawlWebsite extends Component {
       link,
     };
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({

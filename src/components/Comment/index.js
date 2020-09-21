@@ -177,7 +177,7 @@ class Comment extends Component {
     const url = domain + `comments/delete/${removeItem}`;
 
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -217,7 +217,7 @@ class Comment extends Component {
     const url = domain + `comments/list?page=1&perpage=${perPage}`;
 
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -247,7 +247,7 @@ class Comment extends Component {
     const url = domain + `comments/list?page=${page}&perpage=${perPage}`;
 
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -274,7 +274,7 @@ class Comment extends Component {
     const url = domain + `comments/list?page=${page}&perpage=${perPage}`;
 
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -308,7 +308,7 @@ class Comment extends Component {
       domain + `comments/list?page=${1}&perpage=${perPage}&find=${fil}`;
 
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

@@ -17,7 +17,7 @@ class Dashboard extends Component {
   componentDidMount() {
     const url = domain + "statistics/dashboard_infomation";
     const fetchData = {
-      mode: 'no-cors',
+      mode: 'cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
