@@ -19,6 +19,7 @@ class CircleChart extends Component {
   componentDidMount() {
     const url = domain + "statistics/total_post";
     const fetchData = {
+      mode: 'no-cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

@@ -32,6 +32,7 @@ class Profile extends Component {
   componentDidMount() {
     const url = domain + "auth/me";
     const fetchData = {
+      mode: 'no-cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -109,6 +110,7 @@ class Profile extends Component {
       fullname: updateFullname,
     };
     const fetchData = {
+      mode: 'no-cors',
       method: "PUT",
       body: JSON.stringify(data),
       headers: new Headers({
@@ -170,6 +172,7 @@ class Profile extends Component {
       newPassword,
     };
     const fetchData = {
+      mode: 'no-cors',
       method: "PUT",
       body: JSON.stringify(data),
       headers: new Headers({

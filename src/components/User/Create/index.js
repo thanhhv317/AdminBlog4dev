@@ -47,6 +47,7 @@ class UserCreate extends Component {
       password,
     };
     const fetchData = {
+      mode: 'no-cors',
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({

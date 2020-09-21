@@ -40,6 +40,7 @@ class UserList extends Component {
     const url = domain + `users/list?page=1&perpage=${perPage}`;
 
     const fetchData = {
+      mode: 'no-cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -289,6 +290,7 @@ class UserList extends Component {
     const url = domain + `users/delete/${removeItem}`;
 
     const fetchData = {
+      mode: 'no-cors',
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -323,6 +325,7 @@ class UserList extends Component {
     const url = domain + `users/list?page=${page}&perpage=${perPage}`;
 
     const fetchData = {
+      mode: 'no-cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -349,6 +352,7 @@ class UserList extends Component {
     const url = domain + `users/list?page=${page}&perpage=${perPage}`;
 
     const fetchData = {
+      mode: 'no-cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -381,6 +385,7 @@ class UserList extends Component {
     const url = domain + `users/list?page=${1}&perpage=${perPage}&find=${fil}`;
 
     const fetchData = {
+      mode: 'no-cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

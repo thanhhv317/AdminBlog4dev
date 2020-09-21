@@ -123,6 +123,7 @@ class Album extends Component {
     const { removeItem, items } = this.state;
     const url = domain + `albums/delete/${removeItem._id}`;
     const fetchData = {
+      mode: 'no-cors',
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -158,6 +159,7 @@ class Album extends Component {
   loadAlbums = (limit, perpage) => {
     const url = domain + `albums/list?limit=${limit}&perpage=${perpage}`;
     const fetchData = {
+      mode: 'no-cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

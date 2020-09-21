@@ -23,6 +23,7 @@ class ViewPost extends Component {
 
     const url = domain + `posts/view/${id}`;
     const fetchData = {
+      mode: 'no-cors',
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
