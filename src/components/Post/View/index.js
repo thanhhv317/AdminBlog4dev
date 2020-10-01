@@ -41,7 +41,7 @@ class ViewPost extends Component {
             items: result.data.post,
             title: result.data.post.title,
             author: result.data.post.authorId.fullname,
-            createdAt: result.data.post.createAt
+            createdAt: result.data.post.createdAt
           });
         },
         (error) => {

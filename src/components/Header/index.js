@@ -50,7 +50,7 @@ class Header extends Component {
                             </div>
                             <div className="hd-mg-ctn">
                               <h3>{cookie.load("username")}</h3>
-                              <p>Tham gia: {moment(cookie.load("userCreateAt")).format("DD/MM/YYYY")}</p>
+                              <p>Tham gia: {moment(cookie.load("usercreatedAt")).format("DD/MM/YYYY")}</p>
                             </div>
                           </div>
                         </Link>

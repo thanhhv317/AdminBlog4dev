@@ -45,9 +45,9 @@ class Comment extends Component {
     {
       name: "Ngày tạo",
       sortable: true,
-      selector: "createAt",
+      selector: "createdAt",
       cell: (row) => (
-        <span>{moment(row.createAt).format("hh:mm MM-DD-YYYY")}</span>
+        <span>{moment(row.createdAt).format("hh:mm MM-DD-YYYY")}</span>
       ),
     },
     {

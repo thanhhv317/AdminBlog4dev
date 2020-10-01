@@ -17,7 +17,7 @@ class Profile extends Component {
       username: "",
       birthday: "",
       level: 1,
-      createAt: "",
+      createdAt: "",
       id: "",
       updateItem: {},
       changePasswordConfirmation: false,
@@ -47,7 +47,7 @@ class Profile extends Component {
           if (result.status) {
             this.setState({
               fullname: result.data.fullname,
-              createAt: result.data.createAt,
+              createdAt: result.data.createdAt,
               birthday: result.data.birthday,
               level: result.data.level,
               username: result.data.username,
@@ -207,7 +207,7 @@ class Profile extends Component {
       username,
       fullname,
       birthday,
-      createAt,
+      createdAt,
       level,
       id,
       updateConfirmation,
@@ -281,7 +281,7 @@ class Profile extends Component {
                         <div className="form-example-int mg-t-15">
                           <div className="form-group">
                             <label>Ngày tạo tài khoản: </label>&nbsp;{" "}
-                            {moment(createAt).format("DD/MM/YYYY")}
+                            {moment(createdAt).format("DD/MM/YYYY")}
                           </div>
                         </div>
                         <div className="form-example-int mg-t-15">

@@ -52,7 +52,7 @@ class Login extends Component {
               cookie.save("username", result.data["username"], {
                 path: "/",
               });
-              cookie.save("userCreateAt", result.data["createAt"], {
+              cookie.save("usercreatedAt", result.data["createdAt"], {
                 path: "/",
               });
               cookie.save("userFullname", result.data["fullname"], {
